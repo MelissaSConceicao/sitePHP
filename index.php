@@ -5,8 +5,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
-    
-        <title>Reino Animalia<?php echo $_GET['op']; ?></title>
+        <title>Reino Animalia<?php if (isset($_GET['op'])){ echo $_GET['op']; } ?></title>
     </head>
     <body>
         <div class="container">
@@ -14,7 +13,7 @@
                 <div class="col">
                     <!-- Cabeçalho -->
                     <nav class="navbar navbar-light bg-light">
-                        <a class="navbar-brand" href="index.php?op=1">
+                        <a class="navbar-brand" href="index2.php?">
                             <img src="img/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                             Reino Animalia
                         </a>
@@ -31,7 +30,7 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
-                                    <a href="index.php?op=1">Home</a>
+                                    <a href="index2.php?">Home</a>
                                 </li>
                                 <!-- Menu Reinos-->
                                 <li class="nav-item dropdown">
@@ -51,9 +50,9 @@
                                         Filos
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a href="index.php?op=2">Annelida</a><br>
-                                        <a href="index.php?op=3">Mollusca</a><br>
-                                        <a href="index.php?op=4">Platyhelminthes</a>
+                                        <a href="index2.php?op=1">Annelida</a><br>
+                                        <a href="index2.php?op=2">Mollusca</a><br>
+                                        <a href="index2.php?op=3">Platyhelminthes</a>
                                     </div>
                                 </li>
                             </ul>
@@ -61,15 +60,8 @@
                     </nav>
                 </div>
             </div>
-            
 
-
-
-
-
-
-
-        <?php if ($_GET['op'] == 1){ ?>
+        <?php if(!isset($_GET['op'])){ ?>
             <div class="row">
                 <div class="col">
                     <!-- Carrossel -->
@@ -129,11 +121,11 @@
 
 
 
+        <?php }else{ ?>
 
 
-
-        <?php }elseif($_GET['op'] == 2){ ?>
-            <div class="row">
+            <?php if($_GET['op'] == 1){ ?>
+                <div class="row">
               <div class="col">&nbsp;</div>
             </div>
 
@@ -253,10 +245,8 @@
 
 
 
-
-
-        <?php } elseif($_GET['op'] == 3){ ?>
-            <div class="row">
+            <?php }elseif($_GET['op'] == 2){ ?>
+                <div class="row">
               <div class="col">&nbsp;</div>
             </div>
 
@@ -379,13 +369,8 @@
 
 
 
-
-
-
-
-        <?php } elseif($_GET['op'] == 4){ ?>
-            <!-- Divisa do menu para o conteúdo -->
-            <div class="row">
+            <?php }elseif($_GET['op'] == 3){ ?>
+                <div class="row">
               <div class="col">&nbsp;</div>
             </div>
 
@@ -503,9 +488,18 @@
           </div>
           <!-- ^ Fim Conteiner-->
 
+          
 
-        <?php } else{ ?>
-            <h1>CONTEÚDO DA OPÇÃO 3</h1>
+            <?php }elseif($_GET['op'] == 4){ ?>
+                <h1>CARREGOU O CONTEUDO 4</h1>
+
+            <?php }elseif($_GET['op'] == 5){ ?>
+                <h1>CARREGOU O CONTEUDO 5</h1>
+
+            <?php }else{ ?>
+                <h1>CARREGOU O CONTEUDO N</h1>
+            <?php } ?>
         <?php } ?>
     </body>
 </html>
+            
